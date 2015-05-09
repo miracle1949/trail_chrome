@@ -38,16 +38,18 @@
       <input type="submit" value="Submit" ng-click="login(username, password)">
     </form>
 
-    <div ng-show="loggedIn">
+    <div ng-show="loggedIn && !end">
       <div class="auth-header">
         <h2> ADD THIS PAGE TO A TRAIL </h2>
       </div>
-      <div class="trail" ng-repeat="trail in trails" ng-click="save(trail.id)">
+      <div class="trail" ng-repeat="trail in trails" ng-click="saveStep(trail.id)">
         <div class="hexagon"></div> <span class="trail-name">{{trail.name}}</span> <span class="trail-author">{{trail.author}}</span>
         <!-- this is a cheat, should use glyphicon in future -->
         <span class="plus-button">+</span>
       </div>
     </div>
+
+    <img ng-show="end" src='lastStep.png'>
 
   </body>
 </html>

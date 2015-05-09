@@ -3,6 +3,7 @@ var trailExtension = angular.module('trail-extension',['ngResource']);
 trailExtension.controller('popupController', ['$scope', '$http', function($scope, $http) {
     //TODO: Call API to determine if user is login
   $scope.loggedIn = false;
+  $scope.end = false;
 
     chrome.tabs.getSelected(null, function(tab) {
         $scope.$apply(function () {
@@ -29,6 +30,7 @@ trailExtension.controller('popupController', ['$scope', '$http', function($scope
         $http(req)
         .success(function(data) {
           $scope.trails = data;
+          $scope.end = true;
         })
         .error (function(data, status, headers, config) {
             //uhoh

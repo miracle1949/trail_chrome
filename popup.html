@@ -34,13 +34,13 @@
     <script src="main.js"></script>
   </head>
 
-  <body ng-controller="popupController">                   
+  <body ng-controller="popupController">
     <form ng-show="!loggedIn">
       Username:<br>
-      <input type="text" name="username" autofocus="autofocus">
+      <input type="text" ng-model="username" autofocus="autofocus">
       <br>
       Password:<br>
-      <input type="password" name="password">
+      <input type="password" ng-model="password">
       <br>
       <input type="submit" value="Submit" ng-click="login(username, password)">
     </form>

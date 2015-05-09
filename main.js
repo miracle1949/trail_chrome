@@ -5,9 +5,9 @@ trailExtension.controller('popupController', ['$scope', '$http', function($scope
   $scope.loggedIn = false;
 	
   $scope.trails = [
-        {name: 'test'},
-        {name: 'test2'},
-        {name: 'test3'}
+        {name: 'test', author: 'thekevlau'},
+        {name: 'test2', author: 'fungguy'},
+        {name: 'test3', author: 'a-tran'}
     ];
 
 	chrome.tabs.getSelected(null, function(tab) {

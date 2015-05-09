@@ -14,6 +14,11 @@
     <style>
       body {
         background-color:#eee;
+        position:relative;
+        letter-spacing: 1px;
+      }
+      h2 {
+        font-weight:400;
       }
     </style>
   </head>
@@ -34,8 +39,13 @@
     </form>
 
     <div ng-show="loggedIn">
+      <div class="auth-header">
+        <h2> ADD THIS PAGE TO A TRAIL </h2>
+      </div>
       <div class="trail" ng-repeat="trail in trails" ng-click="save(trail.id)">
-        {{trail.name}}
+        <div class="hexagon"></div> <span class="trail-name">{{trail.name}}</span> <span class="trail-author">{{trail.author}}</span>
+        <!-- this is a cheat, should use glyphicon in future -->
+        <span class="plus-button">+</span>
       </div>
     </div>
 

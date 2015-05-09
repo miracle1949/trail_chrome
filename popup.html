@@ -35,11 +35,9 @@
 
     <p>{{url}}</p>
     <div ng-if="loggedin">
-      <ul>
-        <li ng-repeat="trail in trails">
-          {{trail.name}}
-        </li>
-      </ul>
+      <div class="trail" ng-repeat="trail in trails" ng-click="save(trail.id)">
+        {{trail.name}}
+      </div>
     </div>
     <div ng-if="!loggedin">
 

@@ -4,7 +4,7 @@
  "browser_action" field in manifest.json contains the "default_popup" key with
  value "popup.html".
  -->
-<html>
+<html ng-app="trail-extension">
   <head>
     <title>Getting Started Extension's Popup</title>
     <style>
@@ -27,12 +27,25 @@
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
-    <script src="popup.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="angular-resource.min.js"></script>
+    <script src="main.js"></script>
   </head>
-  <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
-    <p id="currentLink">HELLO WORLD ...</p>
+  <body ng-controller="popupController">
+
+    <p>{{url}}</p>
+    <div ng-if="loggedin">
+      <ul>
+        <li ng-repeat="trail in trails">
+          {{trail.name}}
+        </li>
+      </ul>
+    </div>
+    <div ng-if="!loggedin">
+
+    </div>
   </body>
+
+
 </html>
 

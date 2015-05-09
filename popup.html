@@ -4,7 +4,7 @@
  "browser_action" field in manifest.json contains the "default_popup" key with
  value "popup.html".
  -->
-<html>
+<html ng-app="trail-extension">
   <head>
     <title>Getting Started Extension's Popup</title>
     <style>
@@ -19,19 +19,38 @@
         overflow: hidden;
         max-width: 400px;
       }
+
+      .ng-hide:not(.ng-hide-animate) {
+        /* this is just another form of hiding an element */
+        display: block!important;
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
     </style>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-    <script src="popup.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="angular-resource.min.js"></script>
+    <script src="main.js"></script>
   </head>
-  <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
+
+  <body ng-controller="popupController">                   
+    <form ng-show="!loggedIn">
+      Username:<br>
+      <input type="text" name="username" autofocus="autofocus">
+      <br>
+      Password:<br>
+      <input type="password" name="password">
+      <br>
+      <input type="submit" value="Submit" ng-click="login(username, password)">
+    </form>
+
+    <div ng-show="loggedIn">
+      <div class="trail" ng-repeat="trail in trails" ng-click="save(trail.id)">
+        {{trail.name}}
+      </div>
+    </div>
+
   </body>
 </html>
 

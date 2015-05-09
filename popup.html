@@ -7,41 +7,29 @@
 <html ng-app="trail-extension">
   <head>
     <title>Getting Started Extension's Popup</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-
-      .ng-hide:not(.ng-hide-animate) {
-        /* this is just another form of hiding an element */
-        display: block!important;
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-      }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="main.css">
     <script src="angular.min.js"></script>
     <script src="angular-resource.min.js"></script>
     <script src="main.js"></script>
+    <style>
+      body {
+        background-color:#eee;
+      }
+    </style>
   </head>
 
   <body ng-controller="popupController">                   
     <form ng-show="!loggedIn">
-      Username:<br>
-      <input type="text" name="username" autofocus="autofocus">
-      <br>
-      Password:<br>
-      <input type="password" name="password">
-      <br>
+      <div class="logo-header">
+      </div>
+      <h2 style="margin:0px">Login
+      </h2>
+      <div class="input-border">
+      <input class="coolborder" type="text" name="username" placeholder="Username">
+      </div>
+      <div class="input-border">
+      <input class="coolborder" type="password" name="password" placeholder="Password">
+      </div>
       <input type="submit" value="Submit" ng-click="login(username, password)">
     </form>
 

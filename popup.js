@@ -13,19 +13,40 @@ chrome.tabs.getSelected(null, function(tab) {
     // trail.append(tab.url)
 });
 
+function checkAuth() {
+  // GET from server; if true: return user id, auth token?
+  // if false or reply empty:, call userLogin()
+
+
+}
+
+function userLogin() {
+  // load user login HTML page
+  // onClick of login button, send PUT request to server
+
+}
+
+
 function getTrails(done) {
-  //
-  data = ['name1', 'name2', 'name3'];
+  checkAuth()
+  //get trail objects.
+  data = {
+    "trail1" {
+      'name':
+      ''
+    }
+
+  };
   done(data)
 };
 
-function render(done) {
+function renderTrails(done) {
   getTrails(function(trails){
     list_of_trails = JSON.parse(trails);
     for (var i=0; i < list_of_trails.length(), i++) {
       // need to parse JSON ?!
       // json.parse
-      trail_name = list_of_trails[i];
+      trail_name = list_of_trails[i].name;
       // this needs to become a link
       document.body.innerHTML = "<div>trail_name</div>";
     }
@@ -34,5 +55,9 @@ function render(done) {
 }
 
 
+
+function saveTrail () {
+
+}
 
 // send this somewhere

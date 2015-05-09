@@ -19,31 +19,38 @@
         overflow: hidden;
         max-width: 400px;
       }
+
+      .ng-hide:not(.ng-hide-animate) {
+        /* this is just another form of hiding an element */
+        display: block!important;
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
     </style>
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
     <script src="angular.min.js"></script>
     <script src="angular-resource.min.js"></script>
     <script src="main.js"></script>
   </head>
-  <body ng-controller="popupController">
 
-    <p>{{url}}</p>
-    <div ng-if="loggedin">
+  <body ng-controller="popupController">                   
+    <form ng-show="!loggedIn">
+      Username:<br>
+      <input type="text" name="username" autofocus="autofocus">
+      <br>
+      Password:<br>
+      <input type="password" name="password">
+      <br>
+      <input type="submit" value="Submit" ng-click="login(username, password)">
+    </form>
+
+    <div ng-show="loggedIn">
       <div class="trail" ng-repeat="trail in trails" ng-click="save(trail.id)">
         {{trail.name}}
       </div>
     </div>
-    <div ng-if="!loggedin">
 
-    </div>
   </body>
-
-
 </html>
 

@@ -1,8 +1,10 @@
 var trailExtension = angular.module('trail-extension',['ngResource']);
 
 trailExtension.controller('popupController', ['$scope', '$http', function($scope, $http) {
-	$scope.loggedin = true;
-	$scope.trails = [
+	//TODO: Call API to determine if user is login
+  $scope.loggedIn = false;
+	
+  $scope.trails = [
         {name: 'test'},
         {name: 'test2'},
         {name: 'test3'}
@@ -23,5 +25,10 @@ trailExtension.controller('popupController', ['$scope', '$http', function($scope
         error (function(data, status, headers, config) {
             //uhoh
         });
+    }
+
+    $scope.login = function(username, password){
+      //POST to /api/login
+      console.log("log in");
     }
 }]);

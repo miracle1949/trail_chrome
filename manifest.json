@@ -12,6 +12,7 @@
   "permissions": [
     "activeTab",
     "tabs",
+    "cookies",
     "https://ajax.googleapis.com/",
     "http://*/"
   ]
